@@ -1,15 +1,17 @@
 import { BlitzPage, invoke } from "blitz"
 import { observer } from "mobx-react-lite"
 import { useStore } from "app/stores"
-import { globalStyles } from "app/utils/styles"
 import Layout from "app/layouts/Layout"
+import { Box, Center, Container, Stack } from "@chakra-ui/layout"
+
 const Home: BlitzPage = observer(() => {
   const { lang } = useStore()
-
   return (
-    <div className={globalStyles.container.className}>
-      <div>{lang.t("hello", { message: "nextjs" })}</div>
-    </div>
+    <Box>
+      <Container>
+        <Center>{lang.t("hello", { msg: "world" })}</Center>
+      </Container>
+    </Box>
   )
 })
 
