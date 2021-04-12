@@ -1,0 +1,76 @@
+{
+  "name": "blitzjs",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "blitz start",
+    "dev": "blitz dev",
+    "studio": "blitz db studio",
+    "build": "blitz build; ",
+    "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
+    "test": "echo \"No tests yet\"",
+    "update": "prisma introspect --schema=./db/schema.prisma; npm run generate",
+    "generate": "prisma generate --schema ./db/schema.prisma;",
+    "gen:analytics": "generate-graphql-client -p -e http://mimo-analytics-testnet.herokuapp.com/query -o ./generated/gql"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "prettier": {
+    "semi": false,
+    "printWidth": 150
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && pretty-quick --staged",
+      "pre-push": "blitz test"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "dependencies": {
+    "@prisma/cli": "2.12.0",
+    "@prisma/client": "2.12.0",
+    "@stitches/react": "0.1.5",
+    "antd": "4.10.0",
+    "axios": "0.21.1",
+    "blitz": "v0.34.0-canary.3",
+    "dayjs": "1.10.2",
+    "graphql-request": "3.4.0",
+    "graphql-typed-client-hotfix": "1.7.4",
+    "iotex-antenna": "0.30.4",
+    "lodash": "4.17.20",
+    "mobx": "6.0.4",
+    "mobx-react-lite": "3.1.6",
+    "mobx-remotedev": "0.3.6",
+    "react": "experimental",
+    "react-dom": "experimental",
+    "react-error-boundary": "3.1.1",
+    "react-query": "3.13.6",
+    "zod": "1.11.13"
+  },
+  "devDependencies": {
+    "@types/antd": "1.0.0",
+    "@types/axios": "0.14.0",
+    "@types/lodash": "4.14.167",
+    "@types/react": "16.9.36",
+    "@typescript-eslint/eslint-plugin": "2.x",
+    "@typescript-eslint/parser": "2.x",
+    "babel-eslint": "10.1.0",
+    "eslint": "6.8.0",
+    "eslint-config-react-app": "5.2.1",
+    "eslint-plugin-flowtype": "4.7.0",
+    "eslint-plugin-import": "2.21.2",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.20.0",
+    "eslint-plugin-react-hooks": "3.0.0",
+    "husky": "4.2.5",
+    "lint-staged": "10.2.10",
+    "prettier": "2.0.5",
+    "pretty-quick": "2.0.1",
+    "typescript": "3.9.5"
+  },
+  "private": true
+}
