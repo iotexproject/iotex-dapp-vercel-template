@@ -1,3 +1,5 @@
+Latest template is here: https://github.com/iotexproject/iotex-dapp-sample-v2
+
 # IoTeX Dapp Template 
 
 This repo is a brief example of an IoTeX dapp using [Blitz.js](https://blitzjs.com/) that can be deployed with Vercel with zero configuration.
